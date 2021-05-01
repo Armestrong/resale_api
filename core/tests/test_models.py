@@ -1,12 +1,17 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
+from core import models
 
-# from core import models
+
+def sample_user(email='arms@devapp.com', password='testpass'):
+    """Create a simple user"""
+    return get_user_model().objects.create_user(email, password)
 
 
 class ModelTest(TestCase):
 
+    # Tests for user creation
     def test_create_user_with_email(self):
         """Test creating a new user with an email successfully"""
         email = 'dev@appdev.com'
@@ -37,3 +42,15 @@ class ModelTest(TestCase):
         )
 
         self.assertTrue(user.is_superuser)
+
+    # Test for real estate
+    def test_real_estate_str(self):
+        """Test the real estate string representation"""
+        real_estate = models.RealEstate.objects.create(
+            name='Imobiliaria SBC',
+            address='Rua Mirage',
+            user=sample_user(),
+
+        )
+
+        self.assertEqual(str(real_estate), real_estate.name)
