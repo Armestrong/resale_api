@@ -5,7 +5,7 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import RealEstate
+from core.models import RealEstate, Property
 
 from property.serializers import RealEstateSerializer
 
@@ -113,21 +113,77 @@ class PrivateRealEstateApiTest(TestCase):
         res = self.client.post(REAL_ESTATE_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-#     # def test_retrieve_real_estate_unique_item(self):
-#     #     """Test that retrieve a unique item for the authenticated user"""
-#     #
-#     #     real_estate1 = RealEstate.objects.create(
-#     #         user=self.user,
-#     #         name='Imobiliaria Genises',
-#     #         address='Jardim Brasil'
-#     #     )
-#     #     real_estate2 = RealEstate.objects.create(
-#     #         user=self.user,
-#     #         name='Imobiliaria Genises',
-#     #         address='Jardim Brasil'
-#     #     )
-#     #
-#     #     res = self.client.get(REAL_ESTATE_URL)
-#     #
-#     #     self.assertEqual(res.status_code, status.HTTP_200_OK)
-#     #     self.assert
+    def test_retrieve_real_estate_unique_item(self):
+        """Test that retrieve a unique item for the authenticated user"""
+        realestate = RealEstate.objects.create(
+            user=self.user,
+            name='Imobiliaria Zeus',
+            address='Avenida R'
+        )
+
+        RealEstate.objects.create(
+            user=self.user,
+            name='Imobiliaria Carlos',
+            address='Avenida GT'
+        )
+
+        properties1 = Property.objects.create(
+            user=self.user,
+            name='Imovel 1',
+            address='Endereço 1',
+            description='etc',
+            features='tex',
+            status=False,
+            type='Home',
+            finality='residential'
+        )
+        properties2 = Property.objects.create(
+            user=self.user,
+            name='Imovel 1',
+            address='Endereço 1',
+            description='etc',
+            features='tex',
+            status=False,
+            type='Home',
+            finality='residential'
+        )
+
+        properties1.real_estates.add(realestate)
+        properties2.real_estates.add(realestate)
+
+        res = self.client.get(REAL_ESTATE_URL, {'assigned_only': 1})
+        self.assertEqual(len(res.data), 1)
+
+    def test_retrieve_real_estates_assigned_to_properties(self):
+        """Test filtering real estates by those assigned to properties"""
+        realestate1 = RealEstate.objects.create(
+            user=self.user,
+            name='Imobiliaria Zeus',
+            address='Avenida R'
+        )
+        realestate2 = RealEstate.objects.create(
+            user=self.user,
+            name='Imobiliaria Thor',
+            address='Avenida X'
+        )
+
+        properties = Property.objects.create(
+            user=self.user,
+            name='Imovel 1',
+            address='Endereço 1',
+            description='etc',
+            features='tex',
+            status=False,
+            type='Home',
+            finality='residential'
+        )
+
+        properties.real_estates.add(realestate1)
+
+        res = self.client.get(REAL_ESTATE_URL, {'assigned_only': 1})
+
+        serializer1 = RealEstateSerializer(realestate1)
+        serializer2 = RealEstateSerializer(realestate2)
+
+        self.assertIn(serializer1.data, res.data)
+        self.assertNotIn(serializer2.data, res.data)
