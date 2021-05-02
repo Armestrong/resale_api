@@ -6,6 +6,7 @@ from property import views
 
 router = DefaultRouter()
 router.register('imobiliarias', views.RealEstateViewSet)
+router.register('properties', views.PropertyViewSet)
 
 app_name = 'property'
 

@@ -54,3 +54,19 @@ class ModelTest(TestCase):
         )
 
         self.assertEqual(str(real_estate), real_estate.name)
+
+    # Test for property
+    def test_property_str(self):
+        """Test the recipe string representation"""
+        recipe = models.Property.objects.create(
+            user=sample_user(),
+            name='Imovel x',
+            address='Imobiliaria x',
+            description='Etc ...',
+            features='etc...',
+            status=False,
+            type='Casa',
+            finality='residencial'
+        )
+
+        self.assertEqual(str(recipe), recipe.name)

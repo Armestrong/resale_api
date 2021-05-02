@@ -112,3 +112,22 @@ class PrivateRealEstateApiTest(TestCase):
 
         res = self.client.post(REAL_ESTATE_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+
+#     # def test_retrieve_real_estate_unique_item(self):
+#     #     """Test that retrieve a unique item for the authenticated user"""
+#     #
+#     #     real_estate1 = RealEstate.objects.create(
+#     #         user=self.user,
+#     #         name='Imobiliaria Genises',
+#     #         address='Jardim Brasil'
+#     #     )
+#     #     real_estate2 = RealEstate.objects.create(
+#     #         user=self.user,
+#     #         name='Imobiliaria Genises',
+#     #         address='Jardim Brasil'
+#     #     )
+#     #
+#     #     res = self.client.get(REAL_ESTATE_URL)
+#     #
+#     #     self.assertEqual(res.status_code, status.HTTP_200_OK)
+#     #     self.assert

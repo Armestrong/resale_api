@@ -123,7 +123,7 @@ class PrivateUserApiTest(TestCase):
         self.assertEqual(res.data, {'name': self.user.name,
                                     'email': self.user.email})
 
-    def test_post_me_not_allowed(self):
+#     def test_post_me_not_allowed(self):
         """Test that POST is not allowed on 'me' URL"""
         res = self.client.post(ME_URL, {})
 

@@ -47,3 +47,20 @@ class RealEstate(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Property(models.Model):
+    """Propertu object"""
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    features = models.CharField(blank=True, max_length=255)
+    status = models.BooleanField(default=False)
+    type = models.CharField(max_length=255)
+    finality = models.CharField(max_length=255, blank=True)
+    real_estates = models.ManyToManyField('RealEstate')
+
+    def __str__(self):
+        return self.name
