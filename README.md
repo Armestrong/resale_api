@@ -16,6 +16,8 @@ ENDPOINTS
       - `api/user/create`
       - `api/user/token`
       - `api/user/me`
+ 
+ Note: you can use the [`ModHeader`](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) google extension to set your authentication Token 
   
 - imovel 
   - getAll 
