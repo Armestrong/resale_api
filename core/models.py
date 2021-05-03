@@ -50,7 +50,7 @@ class RealEstate(models.Model):
 
 
 class Property(models.Model):
-    """Propertu object"""
+    """Property object"""
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
