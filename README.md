@@ -34,4 +34,11 @@ ENDPOINTS
   
   - POST, PUT, PATCH and DELETE
 
-
+It was used:
+ - Python `3.9.1`
+ - Django
+ - Django Rest Framework
+ - Docker
+ - PostgreSQL
+ - Travis-C
+ - Heroku
