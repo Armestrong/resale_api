@@ -18,9 +18,9 @@ COPY ./app /app
 
 # FOR SECURITY
 #RUN mkdir -p /vol/web/media
-RUN mkdir -p /static
+RUN mkdir -p /staticfiles
 RUN adduser -D user
-RUN chown -R user:user /static/
-RUN chmod -R 755 app/static
+RUN chown -R user:user /staticfiles/
+RUN chmod -R 755 /staticfiles
 #RUN chmod -R 755 /vol/web/staticfiles
 USER user
