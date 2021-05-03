@@ -28,4 +28,4 @@ class PropertySerializer(serializers.ModelSerializer):
 
 class PropertyDetailSerializer(PropertySerializer):
     """Serializer a property detail"""
-    real_estates = RealEstateSerializer(many=True, read_only=True)
+    real_estates = RealEstateSerializer(many=True, read_only=False)

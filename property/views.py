@@ -10,7 +10,10 @@ from core.models import Property
 
 class RealEstateViewSet(viewsets.GenericViewSet,
                         mixins.ListModelMixin,
-                        mixins.CreateModelMixin
+                        mixins.CreateModelMixin,
+                        mixins.UpdateModelMixin,
+                        mixins.DestroyModelMixin,
+                        mixins.RetrieveModelMixin,
                         ):
     """Manage real estates in the database"""
 
@@ -34,6 +37,10 @@ class RealEstateViewSet(viewsets.GenericViewSet,
 
     def perform_create(self, serializer):
         """Create a new object"""
+        serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        """Update an object"""
         serializer.save(user=self.request.user)
 
 
