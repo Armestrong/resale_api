@@ -12,6 +12,7 @@ real estate. that contain the listing, registration, edition and deletion.</p>
 - Go to page - `resale-api.herokuapp.com/`
 
 ENDPOINTS
+
  - user
       - `api/user/create`
       - `api/user/token`
@@ -23,16 +24,15 @@ ENDPOINTS
     - `api/imovel/imobiliarias`
     
   - getById
-    - `api/imovel/imoveis/{id}`
-    - `api/imovel/imobiliarias/{id}`
+    - `api/imovel/imoveis/{id}/`
+    - `api/imovel/imobiliarias/{id}/`
   
   - Filtering imoveis by imobiliaria
-    - `api/imovel/imoveis/imobiliarias/?real_estates={id}`
+    - `api/imovel/imoveis/imobiliarias/?real_estates={id}/`
   
   - Filtering imobiliarias that have been assigned with a imovel
-    - `api/imovel/imoveis/{id}`
-    - `api/imovel/imobiliarias/{id}`
+    - `api/imovel/imoveis/imobiliarias/?assigned_only=1`
   
-  - POST, PUT, PATCHA and DELETE
+  - POST, PUT, PATCH and DELETE
 
 
