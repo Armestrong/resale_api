@@ -1,7 +1,14 @@
 [flake8]
+ignore =
+# F811 redefinition of unused 'Path' from line 13
+    F811,
+# F401 'app.settings.base.*' imported but unused
+    F401,
+F403 'from app.settings.base import *' used; unable to detect undefined names
+    F403
 exclude =
   migrations,
   __pycache__,
   manage.py,
   venv,
-  settings.py
+  settings.py,

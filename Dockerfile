@@ -17,10 +17,9 @@ WORKDIR /app
 COPY ./app /app
 
 # FOR SECURITY
-#RUN mkdir -p /vol/web/media
+
 RUN mkdir -p /staticfiles
 RUN adduser -D user
 RUN chown -R user:user /staticfiles/
 RUN chmod -R 755 /staticfiles
-#RUN chmod -R 755 /vol/web/staticfiles
 USER user
