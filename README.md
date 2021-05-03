@@ -13,9 +13,9 @@ real estate. that contain the listing, registration, edition and deletion.</p>
 
 ENDPOINTS
  - user
-  - `api/user/create`
-  - `api/user/token`
-  - `api/user/me`
+      - `api/user/create`
+      - `api/user/token`
+      - `api/user/me`
   
 - imovel 
   - getAll 
