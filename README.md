@@ -7,9 +7,10 @@
 real estate. that contain the listing, registration, edition and deletion.</p>
 
 
-![Badge](https://img.shields.io/badge/API-RESTFULL-%237159c1?style=for-the-badge&logo=ghost)
+![Badge](resale-api.herokuapp.com/API-RESTFULL-%237159c1?style=for-the-badge&logo=ghost)
 
-- Go to page - `resale-api.herokuapp.com/`
+- Go to page - ``
+- [resale-api.herokuapp.com/](https://resale-api.herokuapp.com/)
 
 ENDPOINTS
 
