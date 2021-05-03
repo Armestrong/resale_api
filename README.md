@@ -34,7 +34,7 @@ ENDPOINTS
   
   - POST, PUT, PATCH and DELETE
 
-It was used:
+### It was used:
  - Python
  - Django
  - Django Rest Framework
