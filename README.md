@@ -12,7 +12,7 @@ real estate. that contain the listing, registration, edition and deletion.</p>
 
 ENDPOINTS
 
-Note: you need to be authenticated to use the API, so use the [`ModHeader`](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) google extension, if you prefer, to set your authentication Token
+Note: you need to be authenticated to use the API, if you prefer, use the [`ModHeader`](https://chrome.google.com/webstore/detail/modheader/idgpnmonknjnojddfkpgkljpfnnfcklj) google extension, to set your authentication Token
 
  - user
       - `api/user/create`
