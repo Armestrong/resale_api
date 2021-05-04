@@ -8,7 +8,7 @@ real estate. that contain the listing, registration, edition and deletion.</p>
 
 
 
-- [resale-api.herokuapp.com/](https://resale-api.herokuapp.com/api/user/create)
+- Go to page [resale-api.herokuapp.com/](https://resale-api.herokuapp.com/api/user/create)
 
 ENDPOINTS
 
